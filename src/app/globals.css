@@ -1,0 +1,401 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-grotesk);
+  --font-mono: var(--font-jbmono);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* ── "Craft Dark" developer identity ────────────────────────────
+     Void black · terminal amber · phosphor green · dim studio light.
+     Flat, hairline-ruled, monospace-labelled. No gradients, no glass. */
+
+  /* accent that follows the theme (text-safe amber) */
+  --color-amber-fg: var(--amber-fg);
+  /* fixed terminal palette — a terminal is always dark, in both themes */
+  --color-term-bg: #0d0d10;
+  --color-term-surface: #131317;
+  --color-term-border: #26262c;
+  --color-term-text: #dcdcd4;
+  --color-term-dim: #8a8a93;
+  --color-term-amber: #f5b638;
+  --color-term-green: #4cc38a;
+  --color-term-red: #ef5350;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Modern clean light mode */
+  --background: #fbfbfb;
+  --foreground: #09090b;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+  --primary: #d97706;
+  --primary-foreground: #18181b;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #d97706;
+  --chart-1: #d97706;
+  --chart-2: #10b981;
+  --chart-3: #ef4444;
+
+  --amber-fg: #92400e;
+  --scrollbar: #cbd5e1;
+}
+
+.dark {
+  /* void dark mode (default feel of the site) */
+  --background: #0b0b0d;
+  --foreground: #f2f1ec;
+  --card: #111114;
+  --card-foreground: #f2f1ec;
+  --popover: #141417;
+  --popover-foreground: #f2f1ec;
+  --primary: #f5b638;
+  --primary-foreground: #201804;
+  --secondary: #1a1a20;
+  --secondary-foreground: #d6d6dd;
+  --muted: #17171c;
+  --muted-foreground: #8f8f99;
+  --accent: #1e1e25;
+  --accent-foreground: #f2f1ec;
+  --destructive: #e5484d;
+  --border: #232329;
+  --input: #232329;
+  --ring: #f5b638;
+  --chart-1: #f5b638;
+  --chart-2: #4cc38a;
+  --chart-3: #ef5350;
+
+  --amber-fg: #f5b638;
+
+  --scrollbar: #3a3a42;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-size: 16px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* amber selection, always dark text */
+  ::selection {
+    background: #f5b638;
+    color: #201804;
+  }
+
+  /* visible keyboard focus everywhere — solid amber ring */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  /* slim custom scrollbar, terminal flavored, theme aware */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: var(--scrollbar);
+    border-radius: 4px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+/* ── named component classes ──────────────────────────────────────────
+   Multi-property composites repeated across sections. They live in the
+   components layer (which sorts before utilities) so per-element
+   utilities — padding, text sizes, hover states — always win. */
+@layer components {
+  /* the standard card surface: hairline panel — padding stays per-use */
+  .card-panel {
+    @apply rounded-xl border border-border bg-card;
+  }
+}
+
+@layer utilities {
+  /* ── fluid type & section rhythm ─────────────────────────────────
+     Headings and section padding scale smoothly with the viewport —
+     no breakpoint jumps, comfortable from 320px phones to wide
+     desktops. Swap a value here once and every page follows. */
+
+  /* hero headline */
+  .text-display {
+    font-size: clamp(2.25rem, 1.26rem + 4.2vw, 3.9rem);
+    line-height: 1.04;
+  }
+  /* inner-page h1 */
+  .text-page {
+    font-size: clamp(1.875rem, 1.3rem + 2.5vw, 3rem);
+    line-height: 1.08;
+  }
+  /* section h2 */
+  .text-section {
+    font-size: clamp(1.875rem, 1.55rem + 1.4vw, 2.25rem);
+    line-height: 1.15;
+  }
+  /* article/post h1 — slightly tighter than a page title */
+  .text-post {
+    font-size: clamp(1.875rem, 1.65rem + 1vw, 2.25rem);
+    line-height: 1.15;
+  }
+
+  /* generous section padding (home sections) */
+  .section-y {
+    padding-block: clamp(3rem, 3.05rem + 3.9vw, 6rem);
+  }
+  /* tighter section padding (inner pages) */
+  .section-y-sm {
+    padding-block: clamp(2.5rem, 2.55rem + 1.9vw, 4rem);
+  }
+
+  /* hover lift for interactive tiles — gentle rise + ring-tinted border */
+  .lift {
+    @apply transition-all hover:-translate-y-0.5 hover:border-ring;
+  }
+
+  /* subtle dot-grid texture for hero / section backdrops */
+  .dot-grid {
+    background-image: radial-gradient(
+      circle,
+      color-mix(in srgb, currentColor 9%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+
+  /* mono label with leading marker, e.g. "01 / about" */
+  .label-mono {
+    font-family: var(--font-jbmono), ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* blinking terminal caret */
+  .caret-blink {
+    animation: caret-blink 1.06s steps(1) infinite;
+  }
+
+  @keyframes caret-blink {
+    0%,
+    49% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* hero entrance — CSS only, no client JS */
+  .rise {
+    animation: rise 0.55s ease-out both;
+  }
+  .rise-2 {
+    animation-delay: 0.12s;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* respect users who prefer no motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto !important;
+    }
+    .rise,
+    .rise-2,
+    .caret-blink {
+      animation: none !important;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* smooth mobile drawer animations */
+  @keyframes sheet-slide-in-right {
+    from {
+      transform: translate3d(100%, 0, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes sheet-slide-out-right {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(100%, 0, 0);
+    }
+  }
+
+  @keyframes sheet-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes sheet-fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  [data-slot="sheet-overlay"][data-state="open"] {
+    animation: sheet-fade-in 260ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  [data-slot="sheet-overlay"][data-state="closed"] {
+    animation: sheet-fade-out 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  [data-slot="sheet-content"][data-state="open"] {
+    animation: sheet-slide-in-right 320ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform;
+  }
+
+  [data-slot="sheet-content"][data-state="closed"] {
+    animation: sheet-slide-out-right 240ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform;
+  }
+}
+
+
+/* ── print stylesheet ───────────────────────────────────────────────────
+   Saved-as-PDF pages (blog posts especially) print as ink on paper, not
+   screenshots of the dark UI. Paged media only — screen rendering is
+   untouched. Unlayered on purpose so it outranks every @layer rule. */
+@media print {
+  /* paper is always light: re-declare the theme boundary (the vars every
+     component reads) and the whole tree re-themes itself, dark included */
+  :root, .dark {
+    --background: #ffffff;   --foreground: #1a1a1a;
+    --card: #ffffff;         --card-foreground: #1a1a1a;
+    --secondary: #f4f4f1;    --secondary-foreground: #1a1a1a;
+    --muted: #f4f4f1;        --muted-foreground: #444440;
+    --accent: #eeeeeb;       --accent-foreground: #1a1a1a;
+    --border: #000000;       --input: #999999;   --ring: #000000;
+    --amber-fg: #1a1a1a;
+  }
+
+  /* 11pt at the root scales the rem-based type system; white html bg +
+     light color-scheme stop the dark canvas painting the paper margins */
+  @page { margin: 1.5cm; }
+  html { font-size: 11pt; background: #ffffff !important; color-scheme: light !important; }
+  body { background: #ffffff !important; color: #1a1a1a !important; }
+  .dot-grid { background-image: none !important; }
+
+  /* chrome that is useless on paper: navbar, footer, toasts, the
+     interactive terminal + its hint, buttons (copy code / link, form
+     submit — link-styled buttons still print, they are <a>), share band */
+  body > div > header,
+  body > div > footer,
+  [data-sonner-toaster], #terminal, #hero p.label-mono,
+  main button, main [aria-label^="Share"], .caret-blink {
+    display: none !important;
+  }
+
+  /* heading "#" jump links are navigation, not content — matched however
+     they are classed (a fragment href inside a heading is the tell) */
+  main :is(h1, h2, h3, h4) a[href^="#"],
+  main a[class*="anchor"], main a[data-anchor] { display: none !important; }
+
+  /* the fixed "always dark" terminal palette compiles to literal colors, so
+     code blocks are flattened directly — ink text even with the browser's
+     "print backgrounds" option switched off */
+  main [class*="bg-term-"] { background: #f6f6f4 !important; }
+  main [class*="text-term-"] { color: #1a1a1a !important; }
+  main [class*="border-term-"] { border-color: #000000 !important; }
+
+  /* content links print where they go (relative + nav links excluded) */
+  main a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em; color: #444440; overflow-wrap: break-word;
+  }
+
+  /* full paper width, sticky rails unstuck, entrances at end state */
+  main [class*="mx-auto"][class*="max-w-"] { max-width: 100% !important; }
+  [class*="sticky"], aside, nav { position: static !important; }
+  .rise, .rise-2 { animation: none !important; opacity: 1 !important; transform: none !important; }
+
+  /* pagination: atomic blocks stay whole, headings keep their content */
+  main :is(pre, table, figure, blockquote, .card-panel) { break-inside: avoid; }
+  h1, h2, h3 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+}
