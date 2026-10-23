@@ -48,8 +48,22 @@ export function Footer() {
         </div>
 
         <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 font-mono text-[0.65rem] text-muted-foreground sm:flex-row">
-          <p>© {year} {person.name}</p>
-          <p className="flex items-center gap-3">
+          <p>© {year} {person.name} · All rights reserved</p>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              href="/privacy"
+              className="transition-colors hover:text-foreground"
+            >
+              privacy
+            </Link>
+            <span aria-hidden>·</span>
+            <Link
+              href="/terms"
+              className="transition-colors hover:text-foreground"
+            >
+              terms
+            </Link>
+            <span aria-hidden>·</span>
             <a
               href="/rss.xml"
               className="transition-colors hover:text-foreground"
@@ -62,7 +76,7 @@ export function Footer() {
               ❯
             </span>
             <span>eof</span>
-          </p>
+          </div>
         </div>
       </div>
     </footer>

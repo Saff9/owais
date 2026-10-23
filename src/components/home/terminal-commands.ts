@@ -58,10 +58,13 @@ export function runCommand(host: TerminalHost, raw: string) {
         { kind: "out", text: "available commands:" },
         { kind: "out", text: "  whoami        who is this guy" },
         { kind: "out", text: "  about         short bio" },
+        { kind: "out", text: "  services      what I build & deliver" },
         { kind: "out", text: "  skills        tech stack, grouped" },
         { kind: "out", text: "  projects      list shipped work" },
         { kind: "out", text: "  log           experience as a git log" },
         { kind: "out", text: "  contact       how to reach me" },
+        { kind: "out", text: "  telegram      direct messenger handle" },
+        { kind: "out", text: "  cal           schedule a 15-min discovery call" },
         { kind: "out", text: "  email         copy my email address" },
         { kind: "out", text: `  goto <page>   open a page (${gotoNames})` },
         { kind: "out", text: "  theme         toggle light/dark" },
@@ -82,6 +85,18 @@ export function runCommand(host: TerminalHost, raw: string) {
       push(
         { kind: "out", text: person.summary[0] },
         { kind: "out", text: "→ run `goto about` for the long version" }
+      );
+      break;
+
+    case "services":
+      push(
+        { kind: "out", text: "what I can build for you:" },
+        { kind: "out", text: "  1. Web Applications (Next.js, React, SPAs, responsive UX)" },
+        { kind: "out", text: "  2. Backend & Database (APIs, PostgreSQL, Prisma, Auth)" },
+        { kind: "out", text: "  3. CMS & Admin Panels (Dashboards, custom CRUD, RBAC)" },
+        { kind: "out", text: "  4. Full-Stack Products (MVP to production deployment)" },
+        { kind: "out", text: "  * Pricing: Flexible & negotiable based on project scope." },
+        { kind: "out", text: "→ type `telegram` or `goto contact` to start a project" }
       );
       break;
 
@@ -115,8 +130,27 @@ export function runCommand(host: TerminalHost, raw: string) {
     case "contact":
       push(
         { kind: "out", text: `email: ${person.email}` },
+        { kind: "out", text: `telegram: ${person.telegram || "https://t.me/Kanferneo"} (${person.telegramHandle || "@Kanferneo"})` },
         { kind: "out", text: "form: run `goto contact`" },
-        { kind: "out", text: "fastest: run `email` to copy the address" }
+        { kind: "out", text: "fastest: run `email` to copy email or `telegram` to chat" }
+      );
+      break;
+
+    case "telegram":
+      push(
+        { kind: "ok", text: `Telegram handle: ${person.telegramHandle || "@Kanferneo"}` },
+        { kind: "out", text: `Link: ${person.telegram || "https://t.me/Kanferneo"}` },
+        { kind: "out", text: "Send a message with prefilled project inquiry & scope details" }
+      );
+      break;
+
+    case "cal":
+    case "book":
+    case "call":
+      push(
+        { kind: "ok", text: `Book a 15-min discovery call:` },
+        { kind: "out", text: `Link: ${person.calBookingUrl || "https://cal.com/saffan"}` },
+        { kind: "out", text: "Pick an available time slot for a quick Google Meet intro" }
       );
       break;
 

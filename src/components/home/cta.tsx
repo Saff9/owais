@@ -2,9 +2,12 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CopyEmail } from "@/components/shared/copy-email";
 import { PromptLine } from "@/components/shared/prompt-line";
+import { TechIcon } from "@/components/tech-icon";
 import { person } from "@/content";
 
 export function CtaBand() {
+  const telegramHref = person.telegram || "https://t.me/Kanferneo";
+
   return (
     <section aria-labelledby="cta-heading" className="dot-grid">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 section-y">
@@ -19,8 +22,8 @@ export function CtaBand() {
           </h2>
 
           <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground">
-            The inbox is open for product work, consulting, or a good
-            argument about monorepos.
+            Looking for web apps, backend APIs, CMS panels, or complete MVP delivery?
+            Reach out via Telegram or drop a line in the inbox.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -31,6 +34,22 @@ export function CtaBand() {
                 </span>{" "}
                 get in touch
               </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-[#229ED9]/50 font-mono text-sm hover:border-[#229ED9] hover:bg-[#229ED9]/10"
+            >
+              <a
+                href={telegramHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <TechIcon name="Telegram" className="size-4" />
+                chat on telegram
+              </a>
             </Button>
             <CopyEmail variant="button" email={person.email} />
           </div>

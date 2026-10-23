@@ -10,6 +10,7 @@ import {
 import {
   SiBun,
   SiDocker,
+  SiFastapi,
   SiFramer,
   SiGit,
   SiGithub,
@@ -26,6 +27,7 @@ import {
   SiSqlite,
   SiTailwindcss,
   SiTanstack,
+  SiTelegram,
   SiTrpc,
   SiTypescript,
   SiVercel,
@@ -70,6 +72,7 @@ export const TECH_ICONS: Record<string, TechEntry> = {
 
   // backend
   "Node.js": { icon: SiNodedotjs, color: "#5fa04e" },
+  FastAPI: { icon: SiFastapi, color: "#009688" },
   Bun: { icon: SiBun },
   tRPC: { icon: SiTrpc, color: "#2596be" },
   "REST APIs": { icon: Globe },
@@ -91,6 +94,7 @@ export const TECH_ICONS: Record<string, TechEntry> = {
   GitHub: { icon: SiGithub },
   LinkedIn: { icon: LinkedinIcon },
   "X / Twitter": { icon: SiX },
+  Telegram: { icon: SiTelegram, color: "#229ED9" },
 };
 
 const FALLBACK: TechEntry = { icon: Braces };

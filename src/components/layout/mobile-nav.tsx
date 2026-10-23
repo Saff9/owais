@@ -7,6 +7,7 @@ import {
   FolderGit2,
   GitBranch,
   Home,
+  Layers,
   Mail,
   Menu,
   Newspaper,
@@ -27,6 +28,7 @@ import { cn } from "@/lib/utils";
 
 const ROUTE_ICONS: Record<string, LucideIcon> = {
   "/": Home,
+  "/services": Layers,
   "/about": User,
   "/projects": FolderGit2,
   "/blog": Newspaper,
@@ -53,9 +55,9 @@ export function MobileNav({ pages, name }: MobileNavProps) {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button
-          variant="ghost"
+          variant="outline"
           size="icon"
-          className="text-muted-foreground hover:text-foreground md:hidden"
+          className="size-9 border-border bg-card md:hidden"
           aria-label="Open menu"
         >
           <Menu className="size-5" aria-hidden />

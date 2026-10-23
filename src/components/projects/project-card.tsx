@@ -43,7 +43,12 @@ export function ProjectCard({
           </span>
           {p.name}
         </h3>
-        <p className="mt-1 text-sm text-muted-foreground">{p.tagline}</p>
+        {p.category && (
+          <span className="mt-1 block font-mono text-[0.68rem] text-chart-2 font-medium">
+            {p.category}
+          </span>
+        )}
+        <p className="mt-1.5 text-sm text-muted-foreground">{p.tagline}</p>
 
         {featured && (
           <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-muted-foreground">

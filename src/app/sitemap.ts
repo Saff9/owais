@@ -3,7 +3,9 @@ import { pages, person, projects } from "@/content";
 import { getAllPosts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = `https://${person.domain}`;
+  const isLocal = person.domain.includes("localhost");
+  const protocol = isLocal ? "http" : "https";
+  const base = `${protocol}://${person.domain}`;
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -16,6 +18,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
+    {
+      url: `${base}/privacy`,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
+    {
+      url: `${base}/terms`,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
   ];
 
   const projectRoutes: MetadataRoute.Sitemap = projects.map((p) => ({

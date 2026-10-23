@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/system/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { person, services, socials, seo, pages } from "@/content";
@@ -19,7 +20,8 @@ const jbMono = JetBrains_Mono({
   display: "swap",
 });
 
-const siteUrl = `https://${person.domain}`;
+const isLocal = person.domain.includes("localhost");
+const siteUrl = `${isLocal ? "http" : "https"}://${person.domain}`;
 
 const keywords: string[] = [
   person.name,
@@ -252,8 +254,10 @@ export default function RootLayout({
           </div>
 
           <Toaster />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
   );
 }
+

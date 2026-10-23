@@ -1,4 +1,3 @@
-
 export interface Page {
   href: string;
   label: string;
@@ -19,10 +18,15 @@ export interface Location {
   countryCode: string;
 }
 
-/** A service vertical offered — feeds search-engine structured data. */
+/** A service vertical offered — feeds search-engine structured data and the Services section. */
 export interface Service {
+  id?: string;
   name: string;
+  badge?: string;
   description: string;
+  deliverables?: readonly string[];
+  stack?: readonly string[];
+  icon?: "web" | "backend" | "cms" | "fullstack";
 }
 
 /** A number shown under the hero. */
@@ -40,6 +44,9 @@ export interface Person {
   tagline: string;
   timezone: string;
   email: string;
+  telegram?: string;
+  telegramHandle?: string;
+  calBookingUrl?: string;
   domain: string;
   summary: readonly string[];
   /** Roles cycled by the hero's typewriter. */
@@ -54,6 +61,9 @@ export interface Project {
   year: string;
   tagline: string;
   description: string;
+  overview?: string;
+  challenge?: string;
+  solution?: string;
   highlights: readonly string[];
   stack: readonly string[];
   /** Primary language — picks the logo and the filter on /projects. */

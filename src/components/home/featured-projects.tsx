@@ -16,7 +16,7 @@ export function FeaturedProjects() {
           id="featured-heading"
         />
 
-        <div className={`grid gap-6 ${featured.length === 1 ? "max-w-2xl" : "md:grid-cols-2"}`}>
+        <div className={`grid gap-6 ${featured.length === 1 ? "max-w-2xl" : featured.length === 2 ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3"}`}>
           {featured.map((p) => (
             <ProjectCard key={p.name} project={p} featured />
           ))}
