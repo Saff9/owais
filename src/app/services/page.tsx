@@ -11,7 +11,6 @@ import {
   ShieldCheck,
   Zap,
   GitBranch,
-  Layers,
   HelpCircle,
   Video,
 } from "lucide-react";
@@ -25,30 +24,53 @@ import { services, person } from "@/content";
 export const metadata: Metadata = {
   title: "Services & Capabilities",
   description:
-    "Hire a full-stack engineer for custom web apps, backend APIs, CMS panels, and MVP delivery. Scope-based, negotiable pricing with transparent milestones.",
+    "Hire a full-stack engineer for custom web apps, backend APIs, CMS panels, and end-to-end MVP delivery. Scope-based, negotiable pricing. Based in Srinagar, working worldwide.",
   keywords: [
-    "hire software engineer",
-    "hire web developer",
+    "hire software engineer India",
+    "hire web developer India",
+    "hire Next.js developer",
+    "hire FastAPI developer",
     "freelance web developer",
+    "freelance full-stack developer India",
     "web application development",
-    "backend development",
-    "FastAPI developer",
-    "Next.js developer",
-    "custom cms panel",
-    "full stack mvp",
+    "backend API development",
+    "custom cms panel development",
+    "full stack MVP development",
+    "web developer Srinagar",
+    "software engineer Kashmir",
+    "negotiable pricing web development",
   ],
   alternates: { canonical: "/services" },
   openGraph: {
-    title: `Services | ${person.name}`,
+    type: "website",
+    title: `Hire ${person.name} — Full-Stack Engineer`,
     description:
-      "Hire a full-stack engineer for custom web apps, backend APIs, CMS panels, and MVP delivery. Scope-based, negotiable pricing with transparent milestones.",
+      "Custom web apps, backend APIs, CMS panels, and end-to-end MVP delivery. Scope-based, negotiable pricing. Working worldwide from Srinagar, India.",
     url: "/services",
+    images: [
+      {
+        url: "/services/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `Hire ${person.name} — Full-Stack Engineer`,
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Services | ${person.name}`,
+    title: `Hire ${person.name} — Full-Stack Engineer`,
     description:
-      "Hire a full-stack engineer for custom web apps, backend APIs, CMS panels, and MVP delivery. Scope-based, negotiable pricing with transparent milestones.",
+      "Custom web apps, backend APIs, CMS panels, and end-to-end MVP delivery. Scope-based, negotiable pricing.",
+    creator: `@${person.handle}`,
+    images: [
+      {
+        url: "/services/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `Hire ${person.name} — Full-Stack Engineer`,
+      },
+    ],
   },
 };
 
@@ -105,12 +127,29 @@ const FAQS = [
   },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.a,
+    },
+  })),
+};
+
 export default function ServicesPage() {
   const telegramHref = person.telegram || "https://t.me/Kanferneo";
   const calHref = person.calBookingUrl || "https://cal.com/saffan";
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <PageHeader
         label="services & capabilities"
         title="Engineering & Delivery"

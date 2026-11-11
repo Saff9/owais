@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Crumbs } from "@/components/layout/crumbs";
 import { Markdown } from "@/components/blog/markdown";
 import { PostCard } from "@/components/blog/post-card";
@@ -36,15 +37,39 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.description,
+    keywords: [
+      ...post.tags,
+      "software engineering",
+      "web development",
+      `${person.name} blog`,
+      "developer notes",
+    ],
     alternates: { canonical: pageUrl },
     openGraph: {
       type: "article",
       title: post.title,
       description: post.description,
       url: pageUrl,
-      publishedTime: post.date,
+      publishedTime: `${post.date}T00:00:00Z`,
+      modifiedTime: `${post.date}T00:00:00Z`,
       authors: [person.name],
       tags: [...post.tags],
+      siteName: `${person.name} — ${person.role}`,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+          type: "image/png",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      creator: `@${person.handle}`,
       images: [
         {
           url: ogImageUrl,
@@ -53,12 +78,6 @@ export async function generateMetadata({
           alt: post.title,
         },
       ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.description,
-      images: [ogImageUrl],
     },
   };
 }
@@ -171,6 +190,33 @@ export default async function BlogPostPage({
 
         <div className="mt-16">
           <ShareRow url={postUrl} title={post.title} />
+        </div>
+
+        {/* Author Bio & Hire Card */}
+        <div className="mt-10 rounded-xl border border-border bg-card p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="font-mono text-sm font-semibold text-foreground">
+                Written by {person.name}
+              </p>
+              <p className="mt-1 max-w-md text-xs leading-relaxed text-muted-foreground">
+                {person.role} based in {person.location?.city}, {person.location?.country}. I build web apps, backend APIs, and custom MVPs.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Button asChild size="sm" className="bg-[#229ED9] text-white hover:bg-[#1e8bc0] hover:text-white font-mono text-xs">
+                <a href={person.telegram || "https://t.me/Kanferneo"} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
+                  Telegram
+                  <ArrowUpRight className="size-3" aria-hidden />
+                </a>
+              </Button>
+              <Button asChild size="sm" variant="outline" className="font-mono text-xs">
+                <Link href="/services">
+                  Services & Rates
+                </Link>
+              </Button>
+            </div>
+          </div>
         </div>
 
         <div className="mt-8">

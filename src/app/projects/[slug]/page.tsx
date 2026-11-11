@@ -37,14 +37,33 @@ export async function generateMetadata({
     ],
     alternates: { canonical: pageUrl },
     openGraph: {
+      type: "article",
       title: `${person.name} — ${p.name} Case Study`,
       description: p.tagline,
       url: pageUrl,
+      images: [
+        {
+          url: `${pageUrl}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: `${p.name} — ${p.tagline}`,
+          type: "image/png",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${person.name} — ${p.name} Case Study`,
       description: p.tagline,
+      creator: `@${person.handle}`,
+      images: [
+        {
+          url: `${pageUrl}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: `${p.name} — ${p.tagline}`,
+        },
+      ],
     },
   };
 }

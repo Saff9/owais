@@ -6,27 +6,32 @@ import { person, projects } from "@/content";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Web development case studies — SaaS platforms, developer tools and design systems, each with the full engineering write-up.",
+    "Real-world web development case studies — tour platforms, admin dashboards, REST APIs, and e-commerce storefronts built with Next.js, React, FastAPI and TypeScript.",
   keywords: [
-    "web development projects",
+    "web development projects India",
     "software engineering case studies",
-    "UI/UX design",
-    "design systems",
-    "Next.js",
-    "React",
+    "Next.js projects",
+    "React projects",
+    "FastAPI projects",
+    "full-stack developer portfolio",
+    "web developer portfolio India",
+    "web developer Srinagar portfolio",
+    "admin dashboard development",
+    "e-commerce web development",
   ],
   alternates: { canonical: "/projects" },
   openGraph: {
-    title: `Projects | ${person.name}`,
+    type: "website",
+    title: `Projects — ${person.name}'s Work`,
     description:
-      "Web development case studies — SaaS platforms, developer tools and design systems, each with the full engineering write-up.",
+      "Real-world engineering case studies: tour platforms, admin dashboards, REST APIs, and e-commerce storefronts.",
     url: "/projects",
   },
   twitter: {
     card: "summary_large_image",
-    title: `Projects | ${person.name}`,
+    title: `Projects — ${person.name}'s Work`,
     description:
-      "Web development case studies — SaaS platforms, developer tools and design systems, each with the full engineering write-up.",
+      "Real-world engineering case studies: tour platforms, admin dashboards, REST APIs, and e-commerce storefronts.",
   },
 };
 

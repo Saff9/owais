@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CopyEmail } from "@/components/shared/copy-email";
 import { PromptLine } from "@/components/shared/prompt-line";
@@ -7,6 +8,7 @@ import { person } from "@/content";
 
 export function CtaBand() {
   const telegramHref = person.telegram || "https://t.me/Kanferneo";
+  const calHref = person.calBookingUrl || "https://cal.com/saffan";
 
   return (
     <section aria-labelledby="cta-heading" className="dot-grid">
@@ -23,7 +25,7 @@ export function CtaBand() {
 
           <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground">
             Looking for web apps, backend APIs, CMS panels, or complete MVP delivery?
-            Reach out via Telegram or drop a line in the inbox.
+            Reach out via Telegram, schedule a quick call, or drop a line in the inbox.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -49,6 +51,22 @@ export function CtaBand() {
               >
                 <TechIcon name="Telegram" className="size-4" />
                 chat on telegram
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-amber-fg/40 font-mono text-sm hover:border-amber-fg hover:bg-amber-fg/10"
+            >
+              <a
+                href={calHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <Video className="size-4 text-amber-fg" />
+                book 15-min call
               </a>
             </Button>
             <CopyEmail variant="button" email={person.email} />

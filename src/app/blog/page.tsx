@@ -10,27 +10,32 @@ import { person } from "@/content";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Writing on software engineering, web development, UI/UX and performance — the notes that survive between deploys.",
+    "Practical articles on software engineering, Next.js, FastAPI, database design, and web performance — written by a full-stack engineer in Srinagar, India.",
   keywords: [
     "software engineering blog",
     "web development articles",
-    "TypeScript",
-    "Next.js",
-    "performance",
-    "accessibility",
+    "Next.js tutorials",
+    "FastAPI Python tutorial",
+    "TypeScript tips",
+    "web performance optimization",
+    "full-stack developer blog India",
+    "React developer blog",
+    "PostgreSQL tips",
+    "Docker tutorial",
   ],
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: `Blog | ${person.name}`,
+    type: "website",
+    title: `Blog — ${person.name}`,
     description:
-      "Writing on software engineering, web development, UI/UX and performance — the notes that survive between deploys.",
+      "Practical articles on Next.js, FastAPI, database design, and web performance from a full-stack engineer.",
     url: "/blog",
   },
   twitter: {
     card: "summary_large_image",
-    title: `Blog | ${person.name}`,
+    title: `Blog — ${person.name}`,
     description:
-      "Writing on software engineering, web development, UI/UX and performance — the notes that survive between deploys.",
+      "Practical articles on Next.js, FastAPI, database design, and web performance from a full-stack engineer.",
   },
 };
 
@@ -47,6 +52,21 @@ export default function BlogPage() {
       />
 
       <section className="mx-auto max-w-6xl px-4 sm:px-6 section-y-sm">
+        <div className="mb-6 flex items-center justify-between">
+          <p className="label-mono text-xs text-muted-foreground">
+            {posts.length} articles published
+          </p>
+          <a
+            href="/rss.xml"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="label-mono inline-flex items-center gap-1.5 text-xs text-amber-fg underline-offset-4 hover:underline"
+          >
+            <span className="size-1.5 rounded-full bg-amber-fg" />
+            RSS feed ↗
+          </a>
+        </div>
+
         {latest && (
           <article className="group">
             <Link

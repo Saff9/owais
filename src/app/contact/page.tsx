@@ -11,29 +11,31 @@ import { person } from "@/content";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Hire a software engineer or web developer — custom web apps, backend APIs, CMS panels, and full-stack products. Discuss scope & negotiable pricing.",
+    "Hire Owais — a full-stack engineer for web apps, APIs, CMS panels, and end-to-end MVPs. Telegram (@Kanferneo) is fastest. Scope and pricing are fully negotiable.",
   keywords: [
-    "hire software engineer",
-    "hire web developer",
-    "freelance full-stack developer",
-    "custom web apps",
-    "backend developer",
-    "cms panel developer",
-    "contact telegram",
-    "contact",
+    "hire software engineer India",
+    "hire full-stack developer",
+    "hire web developer Srinagar",
+    "freelance web developer contact",
+    "contact software engineer",
+    "web development inquiry",
+    "hire Next.js developer",
+    "hire FastAPI developer",
+    "custom web app quote",
   ],
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: `Contact | ${person.name}`,
+    type: "website",
+    title: `Contact ${person.name} — Hire a Full-Stack Engineer`,
     description:
-      "Hire a software engineer or web developer — custom web apps, backend APIs, CMS panels, and full-stack products. Discuss scope & negotiable pricing.",
+      "Get in touch to discuss your web app, API, or MVP project. Telegram is fastest. Pricing is negotiable.",
     url: "/contact",
   },
   twitter: {
     card: "summary_large_image",
-    title: `Contact | ${person.name}`,
+    title: `Contact ${person.name} — Hire a Full-Stack Engineer`,
     description:
-      "Hire a software engineer or web developer — custom web apps, backend APIs, CMS panels, and full-stack products. Discuss scope & negotiable pricing.",
+      "Get in touch to discuss your web app, API, or MVP project. Telegram is fastest. Pricing is negotiable.",
   },
 };
 

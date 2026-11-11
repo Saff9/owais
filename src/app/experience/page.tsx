@@ -6,25 +6,30 @@ import { experience, person } from "@/content";
 export const metadata: Metadata = {
   title: "Experience",
   description:
-    "Career progression and technical milestones from web fundamentals to full-stack production — rendered as a git log.",
+    "Owais's engineering journey — from web fundamentals to production full-stack systems. TypeScript, React, Next.js, FastAPI, PostgreSQL, Docker, and beyond.",
   keywords: [
     "software engineer experience",
     "web developer career",
-    "full-stack engineer",
-    "product engineering",
+    "full-stack engineer timeline",
+    "Next.js experience",
+    "React developer experience",
+    "FastAPI Python developer",
+    "TypeScript engineer",
+    "software engineer India",
   ],
   alternates: { canonical: "/experience" },
   openGraph: {
-    title: `Experience | ${person.name}`,
+    type: "profile",
+    title: `Experience — ${person.name}`,
     description:
-      "Career progression and technical milestones from web fundamentals to full-stack production — rendered as a git log.",
+      "Full-stack engineering journey — React, Next.js, FastAPI, PostgreSQL, and production systems that ship.",
     url: "/experience",
   },
   twitter: {
     card: "summary_large_image",
-    title: `Experience | ${person.name}`,
+    title: `Experience — ${person.name}`,
     description:
-      "Career progression and technical milestones from web fundamentals to full-stack production — rendered as a git log.",
+      "Full-stack engineering journey — React, Next.js, FastAPI, PostgreSQL, and production systems that ship.",
   },
 };
 

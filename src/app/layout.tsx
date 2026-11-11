@@ -25,30 +25,43 @@ const siteUrl = `${isLocal ? "http" : "https"}://${person.domain}`;
 
 const keywords: string[] = [
   person.name,
+  "Owais",
+  "Saffan Akbar",
   person.role.toLowerCase(),
   "software engineer",
   "web developer",
   "full-stack developer",
+  "full stack developer India",
   "web development",
-  "ui/ux design",
-  "ui/ux developer",
-  "design systems",
   "frontend developer",
+  "backend developer",
   "Next.js developer",
   "React developer",
-  "TypeScript",
+  "FastAPI developer",
+  "Node.js developer",
+  "TypeScript developer",
   "freelance web developer",
+  "hire web developer",
+  "hire software engineer",
+  "custom web app development",
+  "backend API development",
+  "CMS panel development",
+  "MVP development",
   "portfolio",
 ];
 
 if (person.location) {
-  const { city, country } = person.location;
+  const { city, region, country } = person.location;
   keywords.push(
     `software engineer in ${city}`,
     `web developer in ${city}`,
-    `ui ux designer in ${city}`,
+    `freelance developer ${city}`,
+    `hire developer ${city}`,
+    `software engineer ${region}`,
+    `web developer ${region}`,
     `software engineer ${country}`,
     `web developer ${country}`,
+    `full stack developer ${country}`,
   );
 }
 
@@ -72,6 +85,7 @@ export const metadata: Metadata = {
     },
     types: {
       "application/rss+xml": `${siteUrl}/rss.xml`,
+      "text/plain": `${siteUrl}/llms.txt`,
     },
   },
   openGraph: {
@@ -87,7 +101,8 @@ export const metadata: Metadata = {
         url: `${siteUrl}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: `${person.name} — ${person.role}`,
+        alt: `${person.name} — ${person.role} | Portfolio`,
+        type: "image/png",
       },
     ],
   },
@@ -96,7 +111,14 @@ export const metadata: Metadata = {
     title: `${person.name} — ${person.role}`,
     description: person.tagline,
     creator: `@${person.handle}`,
-    images: [`${siteUrl}/opengraph-image`],
+    images: [
+      {
+        url: `${siteUrl}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: `${person.name} — ${person.role} | Portfolio`,
+      },
+    ],
   },
   robots: {
     index: true,
@@ -128,17 +150,28 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: dark)", color: "#0b0b0d" },
     { media: "(prefers-color-scheme: light)", color: "#fbfbfb" },
   ],
+  width: "device-width",
+  initialScale: 1,
 };
 
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${siteUrl}/#person`,
   name: person.name,
-  alternateName: person.handle,
+  alternateName: ["Saffan Akbar", "Owais Dar"],
   jobTitle: person.role,
   email: `mailto:${person.email}`,
   url: siteUrl,
-  sameAs: socials.map((s) => s.href),
+  image: `${siteUrl}/opengraph-image`,
+  sameAs: [
+    "https://github.com/saff9",
+    "https://t.me/Kanferneo",
+    "https://cal.com/saffan",
+    ...socials
+      .filter((s) => !s.href.includes("?text="))
+      .map((s) => s.href),
+  ].filter((v, i, a) => a.indexOf(v) === i),
   knowsLanguage: ["en", "hi", "ur"],
   knowsAbout: [
     "Software engineering",
@@ -150,7 +183,11 @@ const personJsonLd = {
     "React",
     "Next.js",
     "Node.js",
+    "FastAPI",
+    "Python",
+    "PostgreSQL",
     "Prisma",
+    "Docker",
     ...services.map((s) => s.name),
   ],
   ...(person.location
@@ -172,22 +209,36 @@ const personJsonLd = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
   name: `${person.name} — ${person.role}`,
   url: siteUrl,
   description: person.tagline,
   inLanguage: "en",
-  publisher: { "@type": "Person", name: person.name, url: siteUrl },
+  publisher: { "@type": "Person", "@id": `${siteUrl}/#person`, name: person.name, url: siteUrl },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${siteUrl}/blog?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
 };
 
 const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": `${siteUrl}/#service`,
   name: `${person.name} — Software Engineering & Web Development`,
-  description: person.tagline,
-  url: siteUrl,
+  description:
+    "Full-stack web development, backend APIs, CMS panels, and end-to-end MVP product engineering. Negotiable pricing.",
+  url: `${siteUrl}/services`,
   email: `mailto:${person.email}`,
-  provider: { "@type": "Person", name: person.name, url: siteUrl },
+  provider: { "@type": "Person", "@id": `${siteUrl}/#person`, name: person.name, url: siteUrl },
   serviceType: services.map((s) => s.name),
+  priceRange: "Contact for quote",
+  currenciesAccepted: "USD, INR",
+  paymentAccepted: "Bank Transfer, UPI, Wise",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Services",
@@ -204,7 +255,9 @@ const serviceJsonLd = {
     ? {
         areaServed: [
           { "@type": "City", name: person.location.city },
+          { "@type": "AdministrativeArea", name: person.location.region },
           { "@type": "Country", name: person.location.country },
+          { "@type": "Country", name: "Worldwide" },
         ],
       }
     : {}),
@@ -215,6 +268,17 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* llms.txt — discovered by AI crawlers (ChatGPT, Claude, Perplexity, Gemini) */}
+        <link rel="llms" type="text/plain" href={`${siteUrl}/llms.txt`} />
+        {/* IndieWeb rel=me — links profile pages together for identity verification */}
+        <link rel="me" href="https://github.com/saff9" />
+        <link rel="me" href="https://t.me/Kanferneo" />
+        {/* security.txt — RFC 9116 */}
+        <link rel="security-policy" href={`${siteUrl}/.well-known/security.txt`} />
+      </head>
       <body
         className={`${grotesk.variable} ${jbMono.variable} font-sans antialiased`}
       >
@@ -260,4 +324,3 @@ export default function RootLayout({
     </html>
   );
 }
-

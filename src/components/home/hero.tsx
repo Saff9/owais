@@ -13,6 +13,11 @@ export function Hero() {
     >
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-10 section-y">
         <div className="rise">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-chart-2/30 bg-chart-2/10 px-3 py-1 font-mono text-[0.7rem] text-chart-2">
+            <span className="size-1.5 rounded-full bg-chart-2 animate-pulse" />
+            <span>Available for projects & contracts · Scope-based pricing</span>
+          </div>
+
           <h1 className="text-display max-w-xl font-bold tracking-tight">
             I build
             <br />
@@ -45,10 +50,20 @@ export function Hero() {
               variant="outline"
               className="border-muted-foreground/30 font-mono text-sm hover:border-ring hover:bg-accent"
             >
-              <Link href="/contact">
+              <Link href="/services">
                 <span className="text-amber-fg" aria-hidden>
                   ❯
                 </span>{" "}
+                services & rates
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="ghost"
+              className="font-mono text-sm text-muted-foreground hover:text-foreground"
+            >
+              <Link href="/contact">
                 contact me
               </Link>
             </Button>

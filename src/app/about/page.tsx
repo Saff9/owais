@@ -19,27 +19,32 @@ import { beyondCode, currently, person, principles, skillsNote, socials } from "
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The person behind the commits — a software engineer and web developer who lives at the seam between design and engineering.",
+    "Owais — full-stack engineer from Srinagar, India. I live at the seam between design and engineering: shipping clean UIs, robust APIs, and production-grade systems that hold up under real load.",
   keywords: [
-    "about",
-    "software engineer",
-    "full-stack web developer",
-    "UI/UX",
-    "design systems",
-    "web performance",
+    "Owais software engineer",
+    "Saffan Akbar developer",
+    "full-stack web developer India",
+    "web developer Srinagar",
+    "software engineer Kashmir",
+    "React developer India",
+    "Next.js developer India",
+    "TypeScript developer",
+    "FastAPI Python developer",
+    "about software engineer",
   ],
   alternates: { canonical: "/about" },
   openGraph: {
-    title: `About | ${person.name}`,
+    type: "profile",
+    title: `About ${person.name} — Full-Stack Engineer`,
     description:
-      "The person behind the commits — a software engineer and web developer who lives at the seam between design and engineering.",
+      "Owais — full-stack engineer from Srinagar, India. Shipping clean UIs, robust APIs, and production-grade systems end-to-end.",
     url: "/about",
   },
   twitter: {
     card: "summary_large_image",
-    title: `About | ${person.name}`,
+    title: `About ${person.name} — Full-Stack Engineer`,
     description:
-      "The person behind the commits — a software engineer and web developer who lives at the seam between design and engineering.",
+      "Full-stack engineer from Srinagar, India. Clean UIs, robust APIs, production-grade systems.",
   },
 };
 

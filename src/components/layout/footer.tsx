@@ -4,7 +4,12 @@ import { pages, person, socials } from "@/content";
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const sitemap = [{ href: "/", label: "home" }, ...pages.map((p) => ({ href: p.href, label: p.label.toLowerCase() }))];
+  const sitemap = [
+    { href: "/", label: "home" },
+    ...pages.map((p) => ({ href: p.href, label: p.label.toLowerCase() })),
+    { href: "/uses", label: "uses" },
+    { href: "/now", label: "now" },
+  ];
 
   return (
     <footer className="mt-auto border-t border-border bg-muted/40">
@@ -36,7 +41,7 @@ export function Footer() {
                 <a
                   href={s.href}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer me"
                   aria-label={`${s.label} — ${s.handle}`}
                   className="flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground"
                 >
@@ -50,31 +55,23 @@ export function Footer() {
         <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 font-mono text-[0.65rem] text-muted-foreground sm:flex-row">
           <p>© {year} {person.name} · All rights reserved</p>
           <div className="flex flex-wrap items-center gap-3">
-            <Link
-              href="/privacy"
-              className="transition-colors hover:text-foreground"
-            >
+            <Link href="/privacy" className="transition-colors hover:text-foreground">
               privacy
             </Link>
             <span aria-hidden>·</span>
-            <Link
-              href="/terms"
-              className="transition-colors hover:text-foreground"
-            >
+            <Link href="/terms" className="transition-colors hover:text-foreground">
               terms
             </Link>
             <span aria-hidden>·</span>
-            <a
-              href="/rss.xml"
-              className="transition-colors hover:text-foreground"
-              aria-label="RSS feed"
-            >
+            <a href="/rss.xml" className="transition-colors hover:text-foreground" aria-label="RSS feed">
               rss
             </a>
             <span aria-hidden>·</span>
-            <span aria-hidden className="text-amber-fg">
-              ❯
-            </span>
+            <a href="/llms.txt" className="transition-colors hover:text-foreground" aria-label="LLMs text file">
+              llms.txt
+            </a>
+            <span aria-hidden>·</span>
+            <span aria-hidden className="text-amber-fg">❯</span>
             <span>eof</span>
           </div>
         </div>

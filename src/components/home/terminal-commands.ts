@@ -25,7 +25,13 @@ export interface TerminalHost extends TerminalData {
 }
 
 export function buildRoutes(pages: readonly Page[]): Record<string, string> {
-  const routes: Record<string, string> = { home: "/", "~": "/" };
+  const routes: Record<string, string> = {
+    home: "/",
+    "~": "/",
+    uses: "/uses",
+    now: "/now",
+    services: "/services",
+  };
   for (const p of pages) routes[p.label.toLowerCase()] = p.href;
   return routes;
 }
@@ -62,6 +68,8 @@ export function runCommand(host: TerminalHost, raw: string) {
         { kind: "out", text: "  skills        tech stack, grouped" },
         { kind: "out", text: "  projects      list shipped work" },
         { kind: "out", text: "  log           experience as a git log" },
+        { kind: "out", text: "  uses          hardware & software toolchain" },
+        { kind: "out", text: "  now           current focus & learning" },
         { kind: "out", text: "  contact       how to reach me" },
         { kind: "out", text: "  telegram      direct messenger handle" },
         { kind: "out", text: "  cal           schedule a 15-min discovery call" },
@@ -125,6 +133,26 @@ export function runCommand(host: TerminalHost, raw: string) {
           text: `* ${e.hash}${ref} ${e.period} — ${e.role}, ${e.company}`,
         });
       }
+      break;
+
+    case "uses":
+      push(
+        { kind: "out", text: "daily driver & toolchain:" },
+        { kind: "out", text: "  editor:   VS Code + JetBrains Mono" },
+        { kind: "out", text: "  stack:    Next.js 16, TypeScript, Tailwind v4, FastAPI, PostgreSQL" },
+        { kind: "out", text: "  tools:    Docker, pnpm, uv, Git, Vercel" },
+        { kind: "out", text: "→ run `goto uses` for the complete gear & software breakdown" }
+      );
+      break;
+
+    case "now":
+      push(
+        { kind: "out", text: "current focus:" },
+        { kind: "out", text: "  1. Building TaskFlow (task management) & Bidora (reverse-bidding freelance platform)" },
+        { kind: "out", text: "  2. Shipping alpineclubindia.com (tour & travel exploration platform)" },
+        { kind: "out", text: "  3. Open for freelance MVP engineering & backend APIs" },
+        { kind: "out", text: "→ run `goto now` for more context" }
+      );
       break;
 
     case "contact":
