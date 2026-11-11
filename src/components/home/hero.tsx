@@ -13,11 +13,6 @@ export function Hero() {
     >
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-10 section-y">
         <div className="rise">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-chart-2/30 bg-chart-2/10 px-3 py-1 font-mono text-[0.7rem] text-chart-2">
-            <span className="size-1.5 rounded-full bg-chart-2 animate-pulse" />
-            <span>Available for projects & contracts · Scope-based pricing</span>
-          </div>
-
           <h1 className="text-display max-w-xl font-bold tracking-tight">
             I build
             <br />
