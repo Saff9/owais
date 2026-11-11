@@ -1,150 +1,182 @@
+# Owais — Developer Portfolio & Engineering Case Studies
+
 <div align="center">
 
 ```text
-❯ ~/portfolio
+❯ whoami
+Owais — Software Engineer & Web Developer based in Srinagar, India.
+Shipping fast, accessible, and production-grade web products end-to-end.
 ```
 
-**A server-first developer portfolio: eight pages, a working command line, a markdown blog, and one folder that holds everything you'd edit.**
-
-[![Next.js 16](https://img.shields.io/badge/Next.js-16-0b0b0d?style=flat-square&logo=nextdotjs&logoColor=f5b638)](https://nextjs.org)
-[![React 19](https://img.shields.io/badge/React-19-0b0b0d?style=flat-square&logo=react&logoColor=f5b638)](https://react.dev)
-[![TypeScript strict](https://img.shields.io/badge/TypeScript-strict-f5b638?style=flat-square&logo=typescript&logoColor=0b0b0d)](https://www.typescriptlang.org)
-[![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4-0b0b0d?style=flat-square&logo=tailwindcss&logoColor=f5b638)](https://tailwindcss.com)
-[![Prisma + SQLite](https://img.shields.io/badge/Prisma-SQLite-0b0b0d?style=flat-square&logo=prisma&logoColor=f5b638)](https://www.prisma.io)
-[![Bun · Node 20+](https://img.shields.io/badge/Bun%20%C2%B7%20Node-20%2B-0b0b0d?style=flat-square&logo=bun&logoColor=f5b638)](https://bun.sh)
+[![Live Portfolio](https://img.shields.io/badge/Live_Site-owaisdar.vercel.app-f5b638?style=flat-square&logo=vercel&logoColor=0b0b0d)](https://owaisdar.vercel.app)
+[![Chat on Telegram](https://img.shields.io/badge/Telegram-@Kanferneo-229ED9?style=flat-square&logo=telegram&logoColor=white)](https://t.me/Kanferneo)
+[![Book Call](https://img.shields.io/badge/Cal.com-15--min_call-0b0b0d?style=flat-square&logo=googlemeet&logoColor=f5b638)](https://cal.com/saffan)
+[![Next.js 16](https://img.shields.io/badge/Next.js-16.4.3-0b0b0d?style=flat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-v4-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
 </div>
 
-## What's inside
+---
 
-| Area | Ships with |
-| --- | --- |
-| **Pages** | `/` (hero, terminal, featured work, skills, writing, career log, CTA) · `/about` (bio, principles, skills tree) · `/projects` grid + `/projects/[slug]` case studies · `/blog` + `/blog/[slug]` · `/experience` (career as `git log --career` + shortlog) · `/contact`. Every page is a server component. |
-| **Terminal** | A real command engine on the hero, not a decoration. `help · whoami · about · skills · projects · log · contact · email · goto · theme · ls · clear`, ↑/↓ history, ⌃L, clipboard, and `goto` routing derived from the same page registry that drives the navbar, footer and sitemap. |
-| **Blog** | Markdown in, pages out. gray-matter front matter, reading time, tree-style table of contents, heading anchors with hover `#` links, share row (copy permalink, X, LinkedIn), related posts, prev/next pager, per-post OG images. Six posts ship as examples. No CMS, no content database: the filename is the URL. |
-| **Contact** | react-hook-form + zod on the client; `POST /api/contact` on the server: strict zod validation, in-memory rate limit (10 requests per IP per hour), input sanitisation, direct Telegram Bot API dispatch + webhooks, and local SQLite write with a resilient 503 mailto fallback. |
-| **SEO** | Per-page metadata with vertical keywords and canonicals, hreflang `en` + `x-default`, three JSON-LD graphs in the root layout (Person, WebSite, ProfessionalService) plus BlogPosting and BreadcrumbList on detail pages, generated OG images, `/rss.xml`, `/sitemap.xml`, `/robots.txt`, `/manifest.webmanifest`. Google/Bing verification codes paste into one file and render only when set. |
-| **Design** | "Craft Dark": near-black `#0b0b0d`, terminal amber `#f5b638`, phosphor green, Space Grotesk + JetBrains Mono, hairline borders, warm-paper light mode (`#e9e7dd`), and a print stylesheet so posts save as clean PDFs. |
+## Overview
 
-## Quick start
+A high-performance personal portfolio, service catalog, and engineering blog engineered with **Next.js 16 (App Router)**, **React 19**, **Tailwind CSS v4**, and **TypeScript**. Built around a minimalist **Craft Dark** terminal aesthetic with honest performance budgets and zero client bloat.
 
-Requires Node 20+ or Bun 1.1+. Run from the repo root after cloning:
+- **Live URL**: [https://owaisdar.vercel.app](https://owaisdar.vercel.app)
+- **Author**: Owais ([@saff9](https://github.com/saff9))
+- **Role**: Software Engineer & Web Developer
+- **Location**: Srinagar, Jammu & Kashmir, India
 
-```bash
-bun install                                        # or: npm install
-echo 'DATABASE_URL=file:../db/custom.db' > .env    # SQLite: one file, no server
-bun run db:push                                    # creates db/custom.db
-bun run dev                                        # http://localhost:3000
-```
+---
 
-That is the whole setup for local hacking.
+## Key Features
 
-Production & Deployment:
+### 💻 Interactive Hero Terminal
+A fully-featured client-side command engine running right on the homepage hero:
+* Supported commands: `help`, `whoami`, `about`, `services`, `skills`, `projects`, `log`, `uses`, `now`, `telegram`, `cal`, `email`, `goto <page>`, `theme`, `clear`.
+* Persistent `↑` / `↓` command history, `Ctrl+L` clear shortcut, and clipboard access.
 
-```bash
-bun run build    # prisma generate && next build (native Vercel output)
-bun run start    # runs next start (or set STANDALONE=true for Docker builds)
-```
+### 🛠️ Services & Transparent Delivery (`/services`)
+* Comprehensive catalog covering **Web Applications**, **Backend & APIs**, **CMS Panels**, and **Full-Stack MVPs**.
+* **Negotiable pricing model**: Scope-based and milestone-oriented instead of rigid packages.
+* Interactive FAQ section backed by Schema.org `FAQPage` structured data.
 
-For zero-config deployment to Vercel and wiring form messages to your Telegram bot in two minutes, see [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
+### 📂 In-Depth Case Studies (`/projects`)
+Dedicated write-ups with problem statements, architectural solutions, and tech highlights:
+* **[Alpine Club India](https://owaisdar.vercel.app/projects/alpineclubindia)** — Expedition tour and travel catalog built with Next.js and AVIF/WebP image optimization.
+* **[Pulse Admin](https://owaisdar.vercel.app/projects/pulse-admin)** — Full-stack operational CMS and dashboard with RBAC, Prisma ORM, and PostgreSQL.
+* **[Zenith API](https://owaisdar.vercel.app/projects/zenith-api)** — High-throughput asynchronous RESTful API with FastAPI, JWT rotation, and Docker.
+* **[Kashmir Crafts](https://owaisdar.vercel.app/projects/kashmir-crafts)** — Lightweight artisan e-commerce storefront with Zustand state and WhatsApp checkout.
 
-Quality gates:
+### ✍️ Technical Engineering Blog (`/blog`)
+* Pure Markdown-powered publishing with `gray-matter`, reading time estimates, table of contents, and anchor links.
+* **Latest Posts**:
+  - *What I'm Building: TaskFlow and Bidora* (Architectural write-up on task management and reverse-bidding freelance platforms)
+  - *Building Alpine Club India: How I Designed a Fast Tour Catalog*
+  - *Why I Use FastAPI with Next.js for High-Throughput APIs*
+  - *Prisma & PostgreSQL: 5 Practical Patterns That Saved Us in Production*
+  - *Clean Admin Dashboards Without Bloat*
+  - *No-Flash Dark Mode in Next.js with Tailwind CSS*
+* Dynamic per-post OpenGraph images and full [RSS 2.0 feed](https://owaisdar.vercel.app/rss.xml).
 
-```bash
-bun run lint          # eslint
-bunx tsc --noEmit     # typecheck (strict)
-```
+### 🔍 Advanced SEO & Discoverability
+* **Rich Schema.org JSON-LD**: `Person`, `WebSite` with SearchAction, `ProfessionalService` (Worldwide), `SoftwareApplication`, `BlogPosting`, `FAQPage`, and `BreadcrumbList`.
+* **Social Cards**: Custom 1200×630 OpenGraph and Twitter cards for every page, project, and blog post.
+* **AI Engine Optimization (GEO)**: Machine-readable summary at [`/llms.txt`](https://owaisdar.vercel.app/llms.txt) and [`/llms-full.txt`](https://owaisdar.vercel.app/llms-full.txt) following the [llmstxt.org](https://llmstxt.org) standard for ChatGPT, Claude, and Perplexity.
+* **Developer Standards**: Standardized [`/.well-known/security.txt`](https://owaisdar.vercel.app/.well-known/security.txt) (RFC 9116) and [`/humans.txt`](https://owaisdar.vercel.app/humans.txt).
+* **Setup & Focus**: Dedicated [`/uses`](https://owaisdar.vercel.app/uses) and [`/now`](https://owaisdar.vercel.app/now) pages.
 
-## Project structure
+---
 
-```text
-src/
-├── app/                        routes: one folder per URL, all server components
-│   ├── page.tsx                / (hero · terminal · featured · skills · writing · cta)
-│   ├── about/  contact/  experience/
-│   ├── projects/               grid + [slug] case studies
-│   ├── blog/                   index + [slug] posts (per-post OG images)
-│   ├── api/contact/            the only API route: zod → rate limit → Telegram / SQLite
-│   ├── rss.xml/  sitemap.ts  robots.ts  manifest.ts
-│   ├── layout.tsx              fonts, themes, navbar/footer, JSON-LD, base metadata
-│   └── globals.css             design tokens (the single styling source)
-├── components/                 presentation only, grouped by route
-│   ├── home/  about/  blog/  contact/  experience/  projects/
-│   ├── layout/  shared/  system/
-│   ├── tech-icon.tsx           name → logo map (react-icons + lucide fallbacks)
-│   └── ui/                     5 shadcn primitives: button, input, textarea, sheet, sonner
-├── content/                    the editing surface (see "Make it yours")
-│   ├── site.ts  skills.ts  projects.ts  experience.ts  about.ts  types.ts  index.ts
-│   └── blog/                   markdown posts; _template.md is the starter
-└── lib/                        markdown loader · JSON-LD builders · Prisma client · utils
-```
+## Tech Stack
 
-Outside `src/`: `vercel.json` (Vercel deployment config), `prisma/schema.prisma` (ContactMessage model), `db/custom.db` (local SQLite), `next.config.ts` (strict mode, package import optimization), `docs/ARCHITECTURE.md` (the full codebase map), `docs/DEPLOYMENT.md` (Vercel & Telegram guide).
+| Layer | Technologies |
+| :--- | :--- |
+| **Framework** | Next.js 16.4.3 (App Router, Server Components by default) |
+| **Frontend** | React 19, TypeScript (Strict), Tailwind CSS v4, shadcn/ui |
+| **State & Data** | Zustand, TanStack Query, React Hook Form, Zod |
+| **Backend & ORM** | Node.js, FastAPI (Python), Prisma 6, PostgreSQL |
+| **Content** | Markdown (`gray-matter`, `react-markdown`), gray-matter frontmatter |
+| **Analytics & Edge** | Vercel Web Analytics (`@vercel/analytics/next`), Vercel Edge Network |
+| **Styling** | "Craft Dark" terminal palette, Space Grotesk + JetBrains Mono typography |
 
-## Make it yours
+---
 
-Every identity value lives in `src/content/`, so customizing the site touches zero components. Ten edits, roughly ten minutes:
-
-| # | Change | Where |
-| --- | --- | --- |
-| 1 | Name, role, email, domain, timezone, hero stats | `src/content/site.ts` → `person` |
-| 2 | Typewriter roles under the hero | `src/content/site.ts` → `person.roles` |
-| 3 | Social links (footer + contact page) | `src/content/site.ts` → `socials` |
-| 4 | Service verticals to rank for (ProfessionalService JSON-LD) | `src/content/site.ts` → `services` |
-| 5 | Local SEO (structured-data address, keyword variants); delete `person.location` to go international-only | `src/content/site.ts` |
-| 6 | Google/Bing verification codes (meta tags render only when set) | `src/content/site.ts` → `seo` |
-| 7 | Projects: `name` is the URL slug, `featured: true` picks the two on the home page | `src/content/projects.ts` |
-| 8 | Career entries, rendered as `git log --career` | `src/content/experience.ts` |
-| 9 | Skill groups (each item renders its tech logo) | `src/content/skills.ts` |
-| 10 | Bio, principles, "currently" | `src/content/about.ts` |
-
-Publishing a post: copy `src/content/blog/_template.md`, fill the front matter (`title`, `description`, `date`, `tags`), write markdown, save. The blog index, the home page's "latest writing" section, the sitemap, the RSS feed and the OG image update on the next build.
-
-Two smaller knobs:
-
-- Missing a tech logo? Add one line to the `TECH_ICONS` map in `src/components/tech-icon.tsx`. Unknown names fall back to a neutral glyph, so nothing breaks.
-- Colors and type live in `src/app/globals.css` (`:root` = light, `.dark` = dark, `@theme` = terminal palette). There is no `tailwind.config`; Tailwind 4 reads its tokens from CSS.
-
-## Tech stack
-
-| Layer | Choice |
-| --- | --- |
-| Framework | Next.js 16, App Router, native Vercel serverless / standalone Docker |
-| UI | React 19, server components by default |
-| Language | TypeScript, `strict` |
-| Styling | Tailwind CSS 4 via `@tailwindcss/postcss` + shadcn/ui (New York, 5 primitives kept) |
-| Content | Typed TS modules + markdown (`gray-matter`, `react-markdown`) |
-| Forms | react-hook-form + zod, validated client and server |
-| Delivery & Data | Telegram Bot API + webhooks in prod, Prisma 6 + SQLite locally |
-| Theming | next-themes, class strategy, dark default, warm-paper light mode |
-| Tooling | Bun (npm works too), ESLint 9, `tsc --noEmit` |
-
-## Scripts
-
-| Command | What it does |
-| --- | --- |
-| `bun run dev` | Dev server on `http://localhost:3000` |
-| `bun run build` | Production build (`prisma generate && next build`) |
-| `bun run start` | Runs the production Next.js server |
-| `bun run lint` | ESLint over the repo |
-| `bunx tsc --noEmit` | Typecheck (not a package.json script; run it directly) |
-| `bun run db:push` | Sync `prisma/schema.prisma` into SQLite |
-| `bun run db:generate` | Regenerate the Prisma client |
-| `bun run db:migrate` | Create and apply a dev migration |
-| `bun run db:reset` | Reset the database |
-
-## Architecture notes
-
-- **Server-first.** Every page is a React Server Component. Client code is limited to 11 islands, each with a concrete reason to exist: the terminal, the typewriter, nav active states, the mobile drawer, theme provider + toggle, three clipboard buttons (email, code, permalink), the contact form, and the error boundary. Islands never import values from `@/content`; they receive data as props from server parents, so site content never lands in a client bundle.
-- **Content is data.** `src/content/*.ts` exports typed constants; posts are `.md` files read at build time. There is no CMS, no admin panel, no content database. The editor is your editor.
-- **Small dependency surface.** 18 runtime dependencies plus 9 dev, down from 67 after a pruning pass. shadcn/ui keeps only the 5 primitives the site actually uses; re-add any other with `bunx shadcn@latest add <component>`.
-- **Static where possible.** Posts and projects pre-render via `generateStaticParams`; `rss.xml`, `sitemap.xml`, `robots.txt`, `manifest.webmanifest` and every OG image are generated routes. The only dynamic code path is `POST /api/contact`.
-- **Deploy anywhere.** Zero-config deployment to Vercel via `vercel.json`, or self-hostable with Docker (`STANDALONE=true bun run build`).
-- **Print-ready.** An unlayered `@media print` block re-inks both themes to paper, hides nav/footer/terminal/toasts/buttons and prints link URLs after their text. Blog posts save as readable PDFs straight from the browser.
-- **Fluid type.** Headings and section rhythm use `clamp()` utilities defined once in `globals.css`; pages scale from 320px to desktop with no breakpoint jumps.
-
-For deployment and environment variables, read [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md). For the full annotated map (folder tree, data flow, the "where do I change X?" table, design tokens, the SEO graph), read [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+## Project Structure
 
 ```text
-❯ eof
+mysite/
+├── public/                     Static icons and assets
+├── src/
+│   ├── app/                    App Router pages and route handlers
+│   │   ├── page.tsx            Homepage (Hero, Terminal, Featured Work, Writing, CTA)
+│   │   ├── about/              Bio, technical principles, skills tree
+│   │   ├── services/           Engineering services, deliverables, FAQ
+│   │   ├── projects/           Case studies grid & [slug] deep-dives
+│   │   ├── blog/               Technical articles & [slug] reader
+│   │   ├── uses/               Hardware, terminal, editor, and software setup
+│   │   ├── now/                Current active focus and reading list
+│   │   ├── contact/            Contact form & direct booking options
+│   │   ├── llms.txt/           AI discovery endpoint
+│   │   ├── llms-full.txt/      Comprehensive AI knowledge base
+│   │   ├── .well-known/        RFC 9116 security.txt
+│   │   ├── humans.txt/         Developer credits
+│   │   ├── rss.xml/            RSS 2.0 feed
+│   │   ├── sitemap.ts          Dynamic XML sitemap
+│   │   ├── robots.ts           Bot & AI crawler directives
+│   │   ├── manifest.ts         PWA web manifest
+│   │   └── opengraph-image.tsx Branded root social preview card
+│   ├── components/             Modular UI components
+│   │   ├── home/               Hero, Terminal, Skills Preview, CTA
+│   │   ├── services/           FAQ Accordion, pricing cards
+│   │   ├── blog/               Markdown renderer, TOC, Share row, Author card
+│   │   ├── layout/             Navbar, Footer, Crumbs, PageHeader
+│   │   └── ui/                 Radix UI & Sonner primitives
+│   ├── content/                Site configuration & data source
+│   │   ├── site.ts             Person bio, services, navigation, SEO tokens
+│   │   ├── projects.ts         Case studies database
+│   │   ├── skills.ts           Grouped language and framework skills
+│   │   ├── experience.ts       Career timeline
+│   │   └── blog/*.md           Published Markdown articles
+│   └── lib/                    Schema builders, blog loaders, utilities
+├── next.config.ts              Caching headers, package imports, image rules
+├── package.json
+└── tsconfig.json
 ```
+
+---
+
+## Local Development
+
+### Prerequisites
+* Node.js 20+ installed
+* npm, pnpm, or bun
+
+### Getting Started
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Saff9/owais.git
+   cd owais
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Start local development server**:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+4. **Verify quality gates**:
+   ```bash
+   # Run TypeScript strict typecheck
+   npx tsc --noEmit
+
+   # Run ESLint
+   npm run lint
+
+   # Run production build
+   npm run build
+   ```
+
+---
+
+## Contact & Hire
+
+I am open to contract work, freelance projects, and MVP engineering.
+
+* **Telegram**: [@Kanferneo](https://t.me/Kanferneo) *(Fastest response)*
+* **Schedule Call**: [cal.com/saffan](https://cal.com/saffan) *(15-min discovery)*
+* **Email**: [saffanakbar942@gmail.com](mailto:saffanakbar942@gmail.com)
+* **Website**: [https://owaisdar.vercel.app](https://owaisdar.vercel.app)
+
+---
+
+<div align="center">
+<sub>Crafted with care by Owais · Srinagar, J&K, India</sub>
+</div>
