@@ -71,7 +71,8 @@ export const metadata: Metadata = {
     default: `${person.name} | ${person.role}`,
     template: `%s | ${person.name}`,
   },
-  description: person.tagline,
+  description:
+    `${person.name} is a full-stack developer in Srinagar, India, building web apps, APIs, admin dashboards, and MVPs with Next.js, React, and TypeScript.`,
   keywords,
   authors: [{ name: person.name, url: siteUrl }],
   creator: person.name,
@@ -79,10 +80,6 @@ export const metadata: Metadata = {
   category: "technology",
   alternates: {
     canonical: siteUrl,
-    languages: {
-      en: siteUrl,
-      "x-default": siteUrl,
-    },
     types: {
       "application/rss+xml": `${siteUrl}/rss.xml`,
       "text/plain": `${siteUrl}/llms.txt`,
@@ -95,7 +92,8 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: `${person.name} | ${person.role}`,
     title: `${person.name} | ${person.role}`,
-    description: person.tagline,
+    description:
+      `${person.name} is a full-stack developer in Srinagar, India, building web apps, APIs, admin dashboards, and MVPs with Next.js, React, and TypeScript.`,
     images: [
       {
         url: `${siteUrl}/opengraph-image`,
@@ -109,7 +107,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${person.name} | ${person.role}`,
-    description: person.tagline,
+    description:
+      `${person.name} is a full-stack developer in Srinagar, India, building web apps, APIs, admin dashboards, and MVPs with Next.js, React, and TypeScript.`,
     creator: `@${person.handle}`,
     images: [
       {
@@ -215,52 +214,6 @@ const websiteJsonLd = {
   description: person.tagline,
   inLanguage: "en",
   publisher: { "@type": "Person", "@id": `${siteUrl}/#person`, name: person.name, url: siteUrl },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${siteUrl}/blog?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
-};
-
-const serviceJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": `${siteUrl}/#service`,
-  name: `${person.name} — Software Engineering & Web Development`,
-  description:
-    "Full-stack web development, backend APIs, CMS panels, and end-to-end MVP product engineering. Negotiable pricing.",
-  url: `${siteUrl}/services`,
-  email: `mailto:${person.email}`,
-  provider: { "@type": "Person", "@id": `${siteUrl}/#person`, name: person.name, url: siteUrl },
-  serviceType: services.map((s) => s.name),
-  priceRange: "Contact for quote",
-  currenciesAccepted: "USD, INR",
-  paymentAccepted: "Bank Transfer, UPI, Wise",
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Services",
-    itemListElement: services.map((s) => ({
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: s.name,
-        description: s.description,
-      },
-    })),
-  },
-  ...(person.location
-    ? {
-        areaServed: [
-          { "@type": "City", name: person.location.city },
-          { "@type": "AdministrativeArea", name: person.location.region },
-          { "@type": "Country", name: person.location.country },
-          { "@type": "Country", name: "Worldwide" },
-        ],
-      }
-    : {}),
 };
 
 export default function RootLayout({
@@ -289,10 +242,6 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
         />
         <ThemeProvider
           attribute="class"
