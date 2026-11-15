@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Terminal } from "@/components/home/terminal";
+import { Showreel } from "@/components/home/showreel";
 import { TypedRole } from "@/components/home/typed-role";
-import { experience, pages, person, projects, skillGroups, stats } from "@/content";
+import { person, stats } from "@/content";
 
 export function Hero() {
   return (
@@ -79,16 +79,7 @@ export function Hero() {
         </div>
 
         <div className="rise rise-2">
-          <Terminal
-            person={person}
-            skillGroups={skillGroups}
-            projects={projects}
-            experience={experience}
-            pages={pages}
-          />
-          <p className="label-mono mt-3 text-center text-muted-foreground">
-            type <span className="text-amber-fg">help</span>
-          </p>
+          <Showreel />
         </div>
       </div>
     </section>

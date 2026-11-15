@@ -68,7 +68,7 @@ if (person.location) {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${person.name} — ${person.role}`,
+    default: `${person.name} | ${person.role}`,
     template: `%s | ${person.name}`,
   },
   description: person.tagline,
@@ -93,22 +93,22 @@ export const metadata: Metadata = {
     locale: "en_IN",
     alternateLocale: ["en_US", "en_GB"],
     url: siteUrl,
-    siteName: `${person.name} — ${person.role}`,
-    title: `${person.name} — ${person.role}`,
+    siteName: `${person.name} | ${person.role}`,
+    title: `${person.name} | ${person.role}`,
     description: person.tagline,
     images: [
       {
         url: `${siteUrl}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: `${person.name} — ${person.role} | Portfolio`,
+        alt: `${person.name} | ${person.role} | Portfolio`,
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${person.name} — ${person.role}`,
+    title: `${person.name} | ${person.role}`,
     description: person.tagline,
     creator: `@${person.handle}`,
     images: [
@@ -116,7 +116,7 @@ export const metadata: Metadata = {
         url: `${siteUrl}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: `${person.name} — ${person.role} | Portfolio`,
+        alt: `${person.name} | ${person.role} | Portfolio`,
       },
     ],
   },
