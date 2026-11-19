@@ -127,7 +127,7 @@ export default async function BlogPostPage({
 
   return (
     <article className="dot-grid border-b border-border">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 section-y-sm">
+      <div className="site-container section-y-sm">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
@@ -231,7 +231,7 @@ export default async function BlogPostPage({
       {related.length > 0 && (
         <aside
           aria-label="Related posts"
-          className="mx-auto max-w-3xl px-4 sm:px-6 section-y-sm"
+          className="site-container section-y-sm"
         >
           <h2 className="label-mono mb-5 flex items-center gap-3 text-muted-foreground">
             <span className="text-amber-fg" aria-hidden>
@@ -240,7 +240,7 @@ export default async function BlogPostPage({
             related notes
             <span aria-hidden className="h-px w-10 bg-border" />
           </h2>
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((p) => (
               <PostCard key={p.slug} post={p} />
             ))}

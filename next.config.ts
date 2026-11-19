@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ["lucide-react", "react-icons"],
+    agentUpgrade: "security",
   },
   async headers() {
     return [

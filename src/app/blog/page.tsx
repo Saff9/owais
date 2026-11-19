@@ -51,7 +51,7 @@ export default function BlogPage() {
         description="Long-form writing on the things I keep getting asked about: performance work that pays off, TypeScript in anger, and the git workflows that survive small teams."
       />
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 section-y-sm">
+      <section className="site-container section-y-sm">
         <div className="mb-6 flex items-center justify-between">
           <p className="label-mono text-xs text-muted-foreground">
             {posts.length} articles published

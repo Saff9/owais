@@ -14,20 +14,20 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/", "/static/"],
       },
       {
-        // Allow AI crawlers to index blog + projects + about
+        // Allow AI crawlers to index blog + projects + about + courses
         // so they can reference this site in AI-generated answers
         userAgent: "GPTBot",
-        allow: ["/", "/blog/", "/projects/", "/about", "/uses", "/now", "/llms.txt", "/llms-full.txt"],
+        allow: ["/", "/blog/", "/courses/", "/projects/", "/about", "/uses", "/now", "/llms.txt", "/llms-full.txt"],
         disallow: ["/api/", "/contact"],
       },
       {
         userAgent: "Claude-Web",
-        allow: ["/", "/blog/", "/projects/", "/about", "/uses", "/now", "/llms.txt", "/llms-full.txt"],
+        allow: ["/", "/blog/", "/courses/", "/projects/", "/about", "/uses", "/now", "/llms.txt", "/llms-full.txt"],
         disallow: ["/api/"],
       },
       {
         userAgent: "PerplexityBot",
-        allow: ["/", "/blog/", "/projects/", "/about", "/llms.txt", "/llms-full.txt"],
+        allow: ["/", "/blog/", "/courses/", "/projects/", "/about", "/llms.txt", "/llms-full.txt"],
         disallow: ["/api/"],
       },
     ],

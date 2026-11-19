@@ -44,7 +44,7 @@ export default function ProjectsPage() {
         description="A working archive: production platforms, developer tools and a few client-side oddities. Open a case study for the details."
       />
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 section-y-sm">
+      <section className="site-container section-y-sm">
         <div className={`grid gap-6 ${projects.length === 1 ? "max-w-2xl" : "sm:grid-cols-2 lg:grid-cols-3"}`}>
           {projects.map((p) => (
             <ProjectCard key={p.name} project={p} />

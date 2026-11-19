@@ -10,7 +10,7 @@ export function NavLinks({ pages }: { pages: readonly Page[] }) {
 
   return (
     <nav aria-label="Primary" className="hidden md:block">
-      <ul className="flex items-center gap-1">
+      <ul className="flex items-center gap-0.5 lg:gap-1">
         {pages.map((p) => {
           const active =
             p.href === "/" ? pathname === "/" : pathname.startsWith(p.href);
@@ -20,9 +20,9 @@ export function NavLinks({ pages }: { pages: readonly Page[] }) {
                 href={p.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "label-mono rounded-md px-3 py-2 transition-colors",
+                  "label-mono rounded-md px-2.5 py-1.5 text-xs transition-colors",
                   active
-                    ? "text-foreground"
+                    ? "text-foreground font-semibold"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >

@@ -73,8 +73,7 @@ export function Navbar({ pages, name }: NavbarProps) {
 
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-out",
-          scrolled ? "pt-3 px-4 pointer-events-none" : "w-full pointer-events-auto",
+          "fixed inset-x-0 top-0 z-50 w-full transition-all duration-200",
           visible
             ? "translate-y-0 opacity-100"
             : "-translate-y-full opacity-0 pointer-events-none"
@@ -82,26 +81,28 @@ export function Navbar({ pages, name }: NavbarProps) {
       >
         <div
           className={cn(
-            "transition-all duration-300 ease-out flex items-center justify-between pointer-events-auto",
+            "w-full border-b transition-all duration-200",
             scrolled
-              ? "mx-auto max-w-3xl h-12 rounded-full border border-border bg-background/90 px-4 sm:px-6 shadow-xl backdrop-blur-md ring-1 ring-border/50"
-              : "mx-auto max-w-6xl h-14 w-full border-b border-border bg-background/85 px-4 sm:px-6 backdrop-blur-md"
+              ? "border-border bg-background/95 shadow-md shadow-black/20 backdrop-blur-md"
+              : "border-border/60 bg-background/80 backdrop-blur-md"
           )}
         >
-          <Link
-            href="/"
-            className="font-mono text-sm font-semibold tracking-tight transition-opacity hover:opacity-80"
-            aria-label={`${name}.dev — home`}
-          >
-            <span className="text-amber-fg">❯</span> {name}
-            <span className="text-muted-foreground">.dev</span>
-          </Link>
+          <div className="site-container flex h-14 items-center justify-between">
+            <Link
+              href="/"
+              className="font-mono text-sm font-semibold tracking-tight transition-opacity hover:opacity-80 shrink-0 mr-4"
+              aria-label={`${name}.dev — home`}
+            >
+              <span className="text-amber-fg">❯</span> {name}
+              <span className="text-muted-foreground">.dev</span>
+            </Link>
 
-          <NavLinks pages={pages} />
+            <NavLinks pages={pages} />
 
-          <div className="flex items-center gap-1.5">
-            <ThemeToggle />
-            <MobileNav pages={pages} name={name} />
+            <div className="flex items-center gap-2 shrink-0 ml-4">
+              <ThemeToggle />
+              <MobileNav pages={pages} name={name} />
+            </div>
           </div>
         </div>
       </header>

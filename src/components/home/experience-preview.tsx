@@ -8,7 +8,7 @@ export function ExperiencePreview() {
 
   return (
     <section aria-labelledby="log-heading" className="scroll-mt-24 border-b border-border">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 section-y">
+      <div className="site-container section-y">
         <SectionHeading
           label="experience"
           title="Recent milestones"

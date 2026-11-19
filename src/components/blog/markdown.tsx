@@ -4,8 +4,8 @@ import { CodeBlock } from "./code-block";
 import { extractHeadings, type Heading } from "@/lib/blog";
 
 const HEADING_STYLES = {
-  h2: "group mt-12 scroll-mt-24 text-2xl font-semibold tracking-tight text-foreground",
-  h3: "group mt-8 scroll-mt-24 text-xl font-semibold tracking-tight text-foreground",
+  h2: "group mt-12 scroll-mt-24 text-2xl sm:text-3xl font-bold tracking-tight text-foreground border-b border-border/60 pb-2",
+  h3: "group mt-8 scroll-mt-24 text-lg sm:text-xl font-bold tracking-tight text-foreground",
 } as const;
 
 function AnchorHeading({
@@ -55,10 +55,10 @@ function headingComponents(headings: Heading[]): Components {
 
 const components: Components = {
   p: ({ children }) => (
-    <p className="mt-4 leading-relaxed text-muted-foreground">{children}</p>
+    <p className="mt-5 text-[1.02rem] sm:text-base leading-relaxed text-foreground/90 font-normal">{children}</p>
   ),
   strong: ({ children }) => (
-    <strong className="font-semibold text-foreground">{children}</strong>
+    <strong className="font-bold text-foreground">{children}</strong>
   ),
   a: ({ href, children }) => {
     const external = href?.startsWith("http") ?? false;
@@ -67,19 +67,19 @@ const components: Components = {
         href={href}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
-        className="text-amber-fg underline underline-offset-4 transition-opacity hover:opacity-80"
+        className="font-medium text-amber-fg underline underline-offset-4 transition-opacity hover:opacity-80"
       >
         {children}
       </a>
     );
   },
   ul: ({ children }) => (
-    <ul className="mt-4 list-disc space-y-2 pl-6 text-muted-foreground">
+    <ul className="mt-4 list-disc space-y-2 pl-6 text-foreground/85 leading-relaxed">
       {children}
     </ul>
   ),
   ol: ({ children }) => (
-    <ol className="mt-4 list-decimal space-y-2 pl-6 text-muted-foreground">
+    <ol className="mt-4 list-decimal space-y-2 pl-6 text-foreground/85 leading-relaxed">
       {children}
     </ol>
   ),

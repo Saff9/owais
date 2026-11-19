@@ -1,11 +1,13 @@
 import { person, services, projects, pages } from "@/content";
 import { getAllPosts } from "@/lib/blog";
+import { getAllCourses } from "@/lib/courses";
 
 export const dynamic = "force-static";
 
 export function GET() {
   const base = `https://${person.domain}`;
   const posts = getAllPosts();
+  const courses = getAllCourses();
 
   // llms-full.txt — the complete content dump for LLMs.
   // This lets AI assistants (Claude, ChatGPT, Perplexity, Gemini) answer
@@ -78,6 +80,25 @@ Date: ${p.date}
 Tags: ${p.tags.join(", ")}
 ${p.description}
 URL: ${base}/blog/${p.slug}
+`
+  )
+  .join("\n")}
+
+---
+
+## Courses & Masterclasses
+
+${courses
+  .map(
+    (c) => `### ${c.title}
+Creator: ${c.creator.name} (${c.creator.channelUrl})
+Track: ${c.track}
+Level: ${c.level}
+Modules: ${c.lessons.length}
+URL: ${base}/courses/${c.slug}
+
+Lessons:
+${c.lessons.map((l) => `- ${l.order}. ${l.title} (${base}/courses/${c.slug}/${l.slug})`).join("\n")}
 `
   )
   .join("\n")}

@@ -12,7 +12,7 @@ export function CtaBand() {
 
   return (
     <section aria-labelledby="cta-heading" className="dot-grid">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 section-y">
+      <div className="site-container section-y">
         <div className="card-panel p-8 text-center sm:p-14">
           <PromptLine command="./start-a-conversation.sh" className="text-muted-foreground" />
 

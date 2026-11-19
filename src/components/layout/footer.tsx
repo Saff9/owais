@@ -13,7 +13,7 @@ export function Footer() {
 
   return (
     <footer className="mt-auto border-t border-border bg-muted/40">
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+      <div className="site-container py-10">
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
           <p className="font-mono text-sm font-semibold">
             <span className="text-amber-fg">❯</span> {person.firstName}

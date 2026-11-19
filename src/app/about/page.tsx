@@ -70,7 +70,7 @@ export default function AboutPage() {
         description="3+ years of shipping for startups and studios — with a bias for systems that stay debuggable long after the launch dopamine fades."
       />
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 section-y-sm">
+      <section className="site-container section-y-sm">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
           <div>
             {person.summary.map((p, i) => (
@@ -142,7 +142,7 @@ export default function AboutPage() {
         aria-labelledby="principles-heading"
         className="border-y border-border bg-muted/40"
       >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 section-y-sm">
+        <div className="site-container section-y-sm">
           <h2
             id="principles-heading"
             className="label-mono mb-3 flex items-center gap-3 text-muted-foreground"
@@ -182,7 +182,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section aria-labelledby="skills-heading" className="mx-auto max-w-6xl px-4 sm:px-6 section-y-sm">
+      <section aria-labelledby="skills-heading" className="site-container section-y-sm">
         <h2
           id="skills-heading"
           className="label-mono mb-3 flex items-center gap-3 text-muted-foreground"
@@ -205,7 +205,7 @@ export default function AboutPage() {
       </section>
 
       <section className="border-t border-border">
-        <div className="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 section-y-sm lg:grid-cols-2">
+        <div className="site-container grid gap-6 section-y-sm lg:grid-cols-2">
           <div className="rounded-xl border border-border bg-card p-6 sm:p-8">
             <h2 className="label-mono mb-6 flex items-center gap-2 text-muted-foreground">
               <BookOpen className="size-3.5 text-amber-fg" aria-hidden />
@@ -243,7 +243,7 @@ export default function AboutPage() {
       </section>
 
       <section className="border-t border-border bg-muted/40">
-        <div className="mx-auto grid max-w-6xl gap-4 px-4 py-8 sm:grid-cols-2 sm:px-6">
+        <div className="site-container grid gap-4 py-8 sm:grid-cols-2">
           <Link
             href="/blog"
             className="label-mono group flex items-center justify-between rounded-lg border border-border bg-card px-5 py-4 text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-ring hover:text-foreground"

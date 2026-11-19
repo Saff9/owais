@@ -27,7 +27,7 @@ export default function PrivacyPage() {
         description="Plain-English disclosure of how your information is handled when you visit this website, submit a project inquiry, or message me."
       />
 
-      <section className="mx-auto max-w-4xl px-4 sm:px-6 section-y-sm">
+      <section className="site-container section-y-sm">
         <div className="card-panel p-6 sm:p-10 space-y-8 font-sans text-sm leading-relaxed text-muted-foreground">
           <div className="flex items-center justify-between border-b border-border pb-4">
             <span className="label-mono flex items-center gap-2 text-amber-fg">

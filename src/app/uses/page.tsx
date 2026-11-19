@@ -210,7 +210,7 @@ export default function UsesPage() {
         description={`Everything I use day-to-day as a full-stack engineer — hardware, editors, terminal, stack, and apps. Last updated ${new Date().toLocaleDateString("en-IN", { month: "long", year: "numeric" })}.`}
       />
 
-      <section className="mx-auto max-w-4xl px-4 sm:px-6 section-y-sm">
+      <section className="site-container section-y-sm">
         {/* Listed on uses.tech notice */}
         <div className="mb-10 flex items-start gap-3 rounded-lg border border-amber-fg/30 bg-card p-4 text-sm text-muted-foreground">
           <span className="text-amber-fg font-mono text-xs pt-0.5">$</span>

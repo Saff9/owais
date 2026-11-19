@@ -49,7 +49,7 @@ export function SkillsPreview() {
       aria-labelledby="skills-heading"
       className="scroll-mt-24 border-b border-border bg-muted/40"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 section-y">
+      <div className="site-container section-y">
         <SectionHeading
           label="skills"
           title="The core stack I build with"

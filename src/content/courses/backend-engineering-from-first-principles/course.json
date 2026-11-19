@@ -1,0 +1,16 @@
+{
+  "title": "Backend Engineering from First Principles",
+  "description": "The complete 31-part masterclass on building reliable, scalable, and fault-tolerant backend systems. Moving beyond simple CRUD APIs into networking, HTTP semantics, protocols, concurrency, and distributed architecture.",
+  "track": "backend",
+  "level": "First Principles to Production",
+  "badge": "31-Video Series",
+  "totalEpisodes": 31,
+  "playlistUrl": "https://www.youtube.com/@sriniously/playlists",
+  "creator": {
+    "name": "Sriniously (K Srinivas Rao)",
+    "handle": "@sriniously",
+    "channelUrl": "https://www.youtube.com/@sriniously",
+    "discordUrl": "https://discord.gg/sriniously",
+    "bio": "Senior Backend Engineer breaking down production-grade systems, protocols, architecture patterns, and engineering principles from scratch."
+  }
+}

@@ -9,7 +9,7 @@ export function FeaturedProjects() {
 
   return (
     <section aria-labelledby="featured-heading" className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 section-y">
+      <div className="site-container section-y">
         <SectionHeading
           label="selected work"
           title="Things I've shipped"

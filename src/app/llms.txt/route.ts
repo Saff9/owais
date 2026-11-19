@@ -37,6 +37,7 @@ Pricing is flexible and negotiable based on project scope. No rigid packages.
 - Portfolio: ${base}
 - Services: ${base}/services
 - Projects: ${base}/projects
+- Courses & Masterclasses: ${base}/courses
 - Blog: ${base}/blog
 - Uses: ${base}/uses
 - Now: ${base}/now

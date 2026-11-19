@@ -116,7 +116,7 @@ export default async function ProjectPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
       />
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 section-y-sm">
+      <div className="site-container section-y-sm">
         <div className="mb-10 flex flex-wrap items-center justify-between gap-3">
           <Crumbs
             items={[

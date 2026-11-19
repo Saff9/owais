@@ -12,6 +12,7 @@ import {
   Menu,
   Newspaper,
   User,
+  BookOpen,
   type LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -29,6 +30,7 @@ import { cn } from "@/lib/utils";
 const ROUTE_ICONS: Record<string, LucideIcon> = {
   "/": Home,
   "/services": Layers,
+  "/courses": BookOpen,
   "/about": User,
   "/projects": FolderGit2,
   "/blog": Newspaper,

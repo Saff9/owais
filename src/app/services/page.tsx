@@ -156,7 +156,7 @@ export default function ServicesPage() {
         description="I design, build, and ship production-ready web products. Whether you need a high-performance web app, robust backend APIs, a custom admin CMS, or a complete MVP from scratch."
       />
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 section-y-sm">
+      <section className="site-container section-y-sm">
         {/* Core Services Grid */}
         <div className="grid gap-6 md:grid-cols-2">
           {services.map((svc) => {

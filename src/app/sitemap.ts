@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { pages, person, projects } from "@/content";
 import { getAllPosts } from "@/lib/blog";
+import { getAllCourses, getAllLessons } from "@/lib/courses";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const protocol = person.domain.includes("localhost") ? "http" : "https";
@@ -24,5 +25,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(`${post.date}T00:00:00Z`),
   }));
 
-  return [...staticRoutes, ...projectRoutes, ...postRoutes];
+  const courseRoutes: MetadataRoute.Sitemap = getAllCourses().map((course) => ({
+    url: `${base}/courses/${course.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  const lessonRoutes: MetadataRoute.Sitemap = getAllLessons().map((lesson) => ({
+    url: `${base}/courses/${lesson.courseSlug}/${lesson.slug}`,
+    lastModified: lesson.publishedAt ? new Date(`${lesson.publishedAt}T00:00:00Z`) : new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...projectRoutes, ...postRoutes, ...courseRoutes, ...lessonRoutes];
 }

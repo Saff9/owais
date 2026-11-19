@@ -11,7 +11,7 @@ export function Hero() {
       aria-label="Introduction"
       className="dot-grid relative overflow-hidden border-b border-border"
     >
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-10 section-y">
+      <div className="site-container grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-12 section-y">
         <div className="rise">
           <h1 className="text-display max-w-xl font-bold tracking-tight">
             I build

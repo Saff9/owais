@@ -51,7 +51,7 @@ export default function ContactPage() {
         description="Looking for custom web apps, backend APIs, CMS panels, or full-stack MVP development? Reach out directly via Telegram, book a discovery call, or submit the contact form below."
       />
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 section-y-sm">
+      <section className="site-container section-y-sm">
         <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr]">
           <div>
             <ContactForm email={person.email} />

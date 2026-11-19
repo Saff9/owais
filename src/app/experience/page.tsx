@@ -42,12 +42,12 @@ export default function ExperiencePage() {
         description="Roles, skills, and shipped outcomes, newest first. Milestones mark the progression from fundamentals to production."
       />
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 section-y-sm">
+      <section className="site-container section-y-sm">
         <GitLog />
       </section>
 
       <section className="border-t border-border">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 section-y-sm">
+        <div className="site-container section-y-sm">
           <h2 className="label-mono mb-6 text-muted-foreground">shortlog</h2>
           <dl className="grid gap-6 sm:grid-cols-3">
             {[

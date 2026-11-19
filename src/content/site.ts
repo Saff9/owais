@@ -156,6 +156,7 @@ export const stats: readonly Stat[] = [
 export const pages: readonly Page[] = [
   { href: "/services", label: "Services" },
   { href: "/projects", label: "Projects" },
+  { href: "/courses", label: "Courses" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/experience", label: "Experience" },
